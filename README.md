@@ -38,7 +38,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|integer|null:  false, foreign_key: true|
 - has_many:groups, through:：members
 - has_many:messages
 - has_many:members
@@ -55,7 +54,7 @@ Things you may want to cover:
 ##  messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text||
 image|string||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
