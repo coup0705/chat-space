@@ -30,7 +30,7 @@ Things you may want to cover:
 |Email|string|null: false|
 |password|string|null: false|
 ### Association
-- has_many:groups, through:members
+- has_many:groups, through: :members
 - has_many:messages
 - has_many:members
 
@@ -39,7 +39,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |user_id|integer|null:  false, foreign_key: true|
-- has_many:groups, through:members
+- has_many:groups, through:：members
 - has_many:messages
 - has_many:members
 
