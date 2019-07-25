@@ -78,7 +78,10 @@
        width: 100%;
        display: flex;
        .form__mask{
-         display: none;
+        //  display: none;
+         .hidden{
+           display: none;
+         }
        }
        
        }
