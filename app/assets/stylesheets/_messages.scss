@@ -1,12 +1,3 @@
-// .notice {  
-//   color: white;
-//  background-color: #38aef0;
-//  font-size:  1rem;
-//  font-weight:  lighter;
-//  text-align: center;
-//  width:  100vw;
-//  position: relative;
-// } 
  .wrapper {
    
    .chat-main {
@@ -54,7 +45,7 @@
      background-color: #fafafa;
      .message {
        padding-bottom:  40px;
-       &__upper-info {
+       .upper-message {
          display: flex;
          margin-bottom: 10px;
          &__talker {
@@ -71,21 +62,37 @@
      }
    }
    .form {
-     height: 90px;
-     padding: 0 40px;
-     background-color: #ddd;
-     .new_message {
-       width: 100%;
-       display: flex;
-       .form__mask{
-        //  display: none;
-         .hidden{
-           display: none;
-         }
-       }
-       
-       }
-     }
-   }
+    height: 90px;
+    padding: 0 40px;
+    background-color: #ddd;
+    .new_message {
+      width: 100%;
+      display: flex;
+      .form__message {
+        width: 100%;
+        height: 50px;
+        padding-left: 10px;
+        margin-top: 10px;
+      }
+       .form__mask {
+        position: absolute; bottom:15px; 
+        font-size:1.3rem;
+        display: flex;
+        .hidden{
+         background-color: #ff0000;
+         display: none;
+        }
+      }
+      .form__submit{
+        background-color: #38AEF0;
+        color:  white;
+        margin-left: 15px;
+        width: 100px;
+        height: 50px;
+        padding: 0 30px;
+        margin-top: 10px;
+      }
+    }
+  }
 }
- 
+}
