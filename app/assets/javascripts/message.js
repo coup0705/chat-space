@@ -1,20 +1,23 @@
 $(function(){
-  // function buildHTML(mesage){
-  //   if (Mmessage.image) {
-  //     var html = 
-      
-  //     ` <div class="upper-message">
-  //       <div class="upper-message__user-name">
-  //       ${message.user_name}
-  //       </div>
-  //       <div class="upper-message__date">
-  //       ${message.time}
-  //       </div>
-  //     </div>
-      
-
-  //   }
-  // }
+  function buildHTML(mesage){
+      var html = 
+      `<div class="massage"> 
+        <div class="upper-message">
+          <div class="upper-message__user-name">
+          ${message.user_name}
+          </div>
+          <div class="upper-message__date">
+          ${message.time}
+          </div>
+        </div>
+        <div class="lower-message">
+          <p class="loower-message_content">
+          ${message.content}
+          </p>
+        </div>
+      </div>`
+      return html;
+    }
   $("#new_message").on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -28,7 +31,14 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      var html
-    }
-});
+      var html = buildHTML(data);
+      $('.messages').append(html);
+       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');   
+       $('form')[0].reset();
+    })
+    .fail(function(){
+      alert('error');
+    });
+    return false;
+  });
 });
