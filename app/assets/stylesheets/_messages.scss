@@ -40,6 +40,7 @@
        }
      }
    .messages {
+     overflow: scroll;
      height: calc(100vh - 262px);
      padding: 46px 40px;
      background-color: #fafafa;
@@ -75,11 +76,12 @@
         margin-top: 10px;
       }
        .form__mask {
-        position: absolute; bottom:15px; 
+        position: absolute; 
+        bottom:15px; 
+        right: 170px;
         font-size:1.3rem;
         display: flex;
         .hidden{
-         background-color: #ff0000;
          display: none;
         }
       }
