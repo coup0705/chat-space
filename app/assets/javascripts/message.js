@@ -68,5 +68,8 @@ $(function(){
     .fail(function(){
       alert('error');
     })
+    .always(function(data){
+      $('.form__submit').prop('disabled', false);
+    })
   })
 });
