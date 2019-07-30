@@ -21,24 +21,25 @@ $(function(){
       </div>`
       return html;
       } else {
-       `<div class="massage"> 
-          <div class="upper-message">
-            <div class="upper-message__user-name">
-            ${message.user_name}
+        var html = 
+        `<div class="massage"> 
+            <div class="upper-message">
+              <div class="upper-message__user-name">
+              ${message.user_name}
+              </div>
+              <div class="upper-message__date">
+              ${message.date}
+              </div>
             </div>
-            <div class="upper-message__date">
-            ${message.date}
+            <div class="lower-message">
+              <p class="loower-message_content">
+              ${message.content}
+              </p>
             </div>
-          </div>
-          <div class="lower-message">
-            <p class="loower-message_content">
-            ${message.content}
-            </p>
-          </div>
-        </div>`
-        return html;
+          </div>`
+          return html;
     }
-      }
+  }
 
   $("#new_message").on('submit', function(e){
     
@@ -61,11 +62,11 @@ $(function(){
       $('.messages').append(html);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');   
       $('form')[0].reset();
+      $('.form__submit').prop( 'disabled', false )
     })
     
     .fail(function(){
       alert('error');
     })
-    return false;
   })
 });
