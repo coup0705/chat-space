@@ -22,12 +22,9 @@ $(function () {
     $('#chat-group-users').append(html);
   }
   
-
-// インクリメンタルサーチ開始
   $(function () {
       $(".chat-group-form__input").on("keyup", function () {
-          var input = $("#user-search-field").val();
-          
+          var input = $("#user-search-field").val();          
           $.ajax({
               type: 'GET',
               url: '/users',
@@ -35,7 +32,6 @@ $(function () {
               dataType: 'json'
           })
           .done(function(users) {
-            console.table(users)
             $("#user_search_result").empty();
             if (users.length !== 0) {
               users.forEach(function(user) {
@@ -48,7 +44,6 @@ $(function () {
           alert("ユーザー検索に失敗しました");
         })
 
-        // ユーザーの追加
         $(function(){
           $(document).on("click", ".chat-group-user__btn--add", function() {
             var user_name = $(this).attr('data-user-name');
@@ -57,7 +52,7 @@ $(function () {
             $(this).parent().remove()
             console.log($(this))
           })
-      // ユーザーの削除
+
           $("#chat-group-users").on("click", ".chat-group-user__btn--remove", function(){
             $(this).parent().remove();
           })
