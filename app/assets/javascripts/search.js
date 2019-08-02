@@ -50,7 +50,6 @@ $(function () {
             var user_id = $(this).attr('data-user-id');
             appendMembers(user_name, user_id);
             $(this).parent().remove()
-            console.log($(this))
           })
 
           $("#chat-group-users").on("click", ".chat-group-user__btn--remove", function(){
