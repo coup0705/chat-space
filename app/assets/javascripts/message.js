@@ -1,12 +1,10 @@
-$(document).on('turbolinks:load', function() { });
 $(function(){
-
   function buildHTML(message){
       var content = message.content != null ? `${ message.content }` : "";
       var img = message.image != null ? `<img src= ${ message.image }>` : "";
       
       var html = 
-      `<div class="massage"> 
+      `<div class="message" data-id="${message.id}"> 
         <div class="upper-message">
           <div class="upper-message__user-name">
           ${message.user_name}
@@ -19,7 +17,7 @@ $(function(){
           <p class="lower-message__content">
           ${content}
           </p>
-          <img class="lower-message__image" src="${img}">
+          ${img}
         </div>
       </div>`
       return html;
@@ -56,4 +54,28 @@ $(function(){
       $('.form__submit').prop('disabled', false);
     })
   })
-});
+
+    var reloadMessages = function() {
+      last_message_id = $('.message:last-child').data('id')
+      console.log(last_message_id)
+      $.ajax({
+        url: 'api/messages',
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        messages.forEach(function(message) {
+          var html = buildHTML(message);
+          $('.messages').append(html);
+          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');  
+        })
+      })
+      .fail(function() {
+        console.log('error');
+      });
+      
+    };
+    setInterval(reloadMessages, 5000);
+    
+  });
